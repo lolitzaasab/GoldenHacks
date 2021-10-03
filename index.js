@@ -50,20 +50,23 @@ async function getExpectedReturn() {
        });
        
        for(var i = 0; i<= dexData.length; i++){
-        //console.log("dexdaya",dexData[i][1])
-        //  if(dexData[i][1] > 0 && dexData[i][1]  == 'undefined'){
-        //    exchangeWithGoodDistribution = dexData[i][0]
-        //    console.log("good exchange",exchangeWithGoodDistribution)
-        //  }
+        console.log("dexdaya",dexData[i][1])
+         if(dexData[i][1] > 0 && dexData[i][1]  == 'undefined'){
+           exchangeWithGoodDistribution = dexData[i][0]
+            console.log("good exchange",exchangeWithGoodDistribution)
+          }
        }
+
+      
 
       await approveSpender();
       return dexData
     });
 }
 
-console.log("dexdata", )
-console.log("datadex", getExpectedReturn())
+
+
+
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -129,4 +132,7 @@ async function executeSwap() {
     });
 }
 
-getExpectedReturn();
+//getExpectedReturn();
+const job = compute.for(getExpectedReturn());
+const results = await job.exec();
+console.log(Array.from(results));
