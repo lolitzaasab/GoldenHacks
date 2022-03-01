@@ -1,6 +1,5 @@
 const Web3 = require("web3");
 const BigNumber = require("bignumber.js");
-const oneSplitAbi = require("./abis/1splitabi.json");
 const erc20Abi = require("./abis/erc20abi.json");
 const DexesList = require("./exchange.js");
 const ethWeiDecimals = 18;
